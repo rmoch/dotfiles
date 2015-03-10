@@ -1,0 +1,30 @@
+[ui]
+username=Richard Moch <richard.moch@gmail.com>
+
+
+ignore=/Users/richard/.hgignore_global
+
+[extensions]
+histedit =
+color =
+rebase =
+hgext.graphlog =
+shelve = /Users/richard/dev/mercurial-extentions/hgshelve/hgshelve.py
+pager =
+hgext.convert =
+mq =
+prompt = /Users/richard/dev/mercurial-extentions/hg-prompt/prompt.py
+
+
+[pager]
+pager = LESS='FSRX' less
+
+[extdiff]
+cmd.sourcetreediff=opendiff
+opts.sourcetreediff=
+
+[ui]
+ssh = ssh -C
+
+[alias]
+log = log -G --stat

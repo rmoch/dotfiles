@@ -1,0 +1,72 @@
+[user]
+        name = 
+        email = 
+[core]
+        editor = emacs
+[color]
+        ui = auto
+
+[color "branch"]
+        current = yellow reverse
+        local = yellow
+        remote = green
+
+[color "diff"]
+        meta = yellow bold
+        frag = magenta bold
+        old = red bold
+        new = green bold
+
+[color "status"]
+        added = yellow
+        changed = green
+        untracked = cyan
+
+[alias]
+        add = add -v
+        pull = pull -vn
+        fetch = fetch -vn
+	remote = remote -v
+        st = status
+        sta = status
+        ci = commit
+        br = branch
+        co = checkout
+        df = diff
+        dif = diff
+        dc = diff --cached
+        lg = log -p
+        pr = pull --rebase
+        p = push
+        fetch = fetch -v
+        lol = log --graph --decorate --pretty=medium --abbrev-commit
+        lola = log --graph --decorate --pretty=medium --abbrev-commit --all
+
+
+[url "git@github.com:rmoch/"]
+        insteadOf = rmoch:
+[merge]
+        tool = opendiff
+
+[push]
+	default = simple  # only push current branch (matching|simple|upstream) git v2 behavior change
+
+[diff]
+  mnemonicPrefix = true
+  renames = true
+  wordRegex = .
+
+[merge]
+    tool = kdiff3
+        keepBackup = false
+        prompt = false
+[mergetool "kdiff3"]
+    path = /Applications/kdiff3.app/Contens/MacOS/kdiff3
+    trustExitCode = false
+[branch]
+	autosetuprebase = always
+[status]
+	submoduleSummary = true
+	showUntrackedFiles = all
+[tag]
+  sort = version:refname
