@@ -7,3 +7,10 @@
 (require 'auto-complete-config)
 (ac-config-default)
 (global-auto-complete-mode t)
+
+(require 'package)
+(add-to-list 'package-archives
+	                  '("elpy" . "http://jorgenschaefer.github.io/packages/"))
+
+(package-initialize)
+(elpy-enable)

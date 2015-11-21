@@ -45,7 +45,7 @@ unsetopt correct_all
 unsetopt share_history
 
 # /opt/local/lib/postgresql90/bin
-export PATH=PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/sbin:/usr/local/git/bin:/Users/richard/.gem/ruby/1.8/bin:$HOME/.rvm/bin
+export PATH=PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/sbin:/usr/local/git/bin:/Users/richard/.gem/ruby/1.8/bin:$HOME/.rvm/bin:/usr/local/bin/pylint
 
 
 alias always='ssh rmoch@ssh.alwaysdata.com'
@@ -72,7 +72,19 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 
 autoload -U compinit; compinit
 
+man() {
+  env LESS_TERMCAP_mb=$'\E[01;31m' \
+  LESS_TERMCAP_md=$'\E[01;38;5;74m' \
+  LESS_TERMCAP_me=$'\E[0m' \
+  LESS_TERMCAP_se=$'\E[0m' \
+  LESS_TERMCAP_so=$'\E[38;5;246m' \
+  LESS_TERMCAP_ue=$'\E[0m' \
+  LESS_TERMCAP_us=$'\E[04;38;5;146m' \
+  man "$@"
+}
 
 export DOCKER_CERT_PATH=/Users/richard/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
 export DOCKER_HOST=tcp://192.168.59.103:2376
+
+[[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker.sh"

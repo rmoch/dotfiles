@@ -1,6 +1,6 @@
 [user]
-        name = 
-        email = 
+	name = Richard Moch
+	email = richard.moch@gmail.com
 [core]
         editor = emacs
 [color]
@@ -31,7 +31,7 @@
         sta = status
         ci = commit
         br = branch
-        co = checkout
+	co = checkout
         df = diff
         dif = diff
         dc = diff --cached
@@ -70,3 +70,9 @@
 	showUntrackedFiles = all
 [tag]
   sort = version:refname
+[gui]
+	recentrepo = /Users/richard/dev/edx/fun/devstack-kifli/edx-platform
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
