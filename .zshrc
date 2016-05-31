@@ -1,3 +1,4 @@
+
 export TERM="xterm-256color"
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
@@ -6,14 +7,10 @@ export ZSH=$HOME/.oh-my-zsh
 # test theme at http://zshthem.es/
 ZSH_THEME="pygmalion"  # "rkj-repos"
 
-# af-magic  pas mal, non compatible avec tmux ?
+#source ~/dotfiles/passwords.txt
 
-source ~/dotfiles/passwords.txt
-
-# Example aliases
 alias zshconfig="sub ~/.zshrc"
 alias ohmyzsh="sub ~/.oh-my-zsh"
-alias snx-connect="echo $CINESVPNPASSWORD | snx -s $CINESVPNIP -u $CINESVPNUSER"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -33,33 +30,38 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(catimg git sublime mercurial osx python nyan macports vagrant z)
+plugins=(git sublime python nyan macports vagrant z)
 
 export HISTSIZE=32768;
 export HISTFILESIZE=$HISTSIZE;
 export HISTCONTROL=ignoredups;
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help";
 
+
+# /opt/local/lib/postgresql90/bin
+export PATH=PATH:/Applications/Postgres.app/Contents/Versions/latest/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/sbin:/usr/local/git/bin
+
+
+# PYTHON
+# Pour resoudre les problèmes d'installation globale au système de paquets Python non OSX depuis El Capitan
+# on créé un venv Python 2.7 (ou 3.5) qui s'active avec la session
+# http://apple.stackexchange.com/questions/209572/how-to-use-pip-after-the-el-capitan-max-os-x-upgrade
+# Attention le PATH doit être défini avant
+source ~/.virtualenvs/richard27/bin/activate
+# Il faut aussi sourcer le script virtualenvwrapper.sh correspondant pour avoir les commandes helpers (mkvirtualenv...)
+source /opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh
+
+
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
 unsetopt share_history
 
-# /opt/local/lib/postgresql90/bin
-export PATH=PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/sbin:/usr/local/git/bin:/Users/richard/.gem/ruby/1.8/bin:$HOME/.rvm/bin:/usr/local/bin/pylint
 
+alias sub=st  # st alias is created by sublime ohmyzsh plugin (wherever is sublime)
+alias tailf=tail -f
 
-alias always='ssh rmoch@ssh.alwaysdata.com'
-alias poedit='find . -name "*.po" |xargs open /Applications/Poedit.app'
-alias as='workon autoslave; cd ~/dev/autoslave/autoslave/autoslave/; git status'
-alias libe='workon liberation; cd ~/dev/liberation/djaz/projects/liberation; hg status'
-alias fluffy='workon optiflows; cd ~/dev/optiflows/fluffy-valentin/fluffy/; hg status'
-alias sub=st
-#alias cat=hicat
-
-source /opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh
 
 alias sub="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
-alias hgsta='hg status'
 
 function swap()
 {
@@ -68,7 +70,6 @@ function swap()
     mv "$2" "$1"
     mv $TMPFILE "$2"
 }
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 
 autoload -U compinit; compinit
 
@@ -83,8 +84,6 @@ man() {
   man "$@"
 }
 
-export DOCKER_CERT_PATH=/Users/richard/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
-export DOCKER_HOST=tcp://192.168.59.103:2376
-
-[[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker.sh"
+# https://github.com/pindexis/marker
+# this do not work with zsh yet
+#[[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker.sh"
