@@ -63,6 +63,9 @@ alias tailf=tail -f
 
 alias sub="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
+# Recurvive, Ignore binaries, show line number
+export GREP_OPTIONS='-nRI --color=always --exclude-dir=__pycache__ --exclude-dir=.nodeproject --exclude-dir=CVS --exclude-dir=SVN --exclude-dir=.git --exclude-dir=.hg'
+
 function swap()
 {
     local TMPFILE=tmp.$$
