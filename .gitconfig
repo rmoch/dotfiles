@@ -1,9 +1,9 @@
 [user]
-    name = Richard Moch
-    email = Richard.moch@gmail.com
+	name = Richard Moch
+	email = richard.moch@gmail.com
 [core]
     editor = emacs
-    excludesfile = ~/dotfiles/.gitignore
+	excludesfile = /Users/richard/.gitignore_global
 [color]
         ui = auto
 
@@ -39,7 +39,6 @@
     lg = log -p
     pr = pull --rebase
     p = push
-    fetch = fetch -v
     lol = log --graph --decorate --pretty=medium --abbrev-commit
     lola = log --graph --decorate --pretty=medium --abbrev-commit --all
 
@@ -78,8 +77,10 @@
     smudge = git-lfs smudge %f
     required = true
 [difftool "sourcetree"]
-    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-    path =
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
 [mergetool "sourcetree"]
-    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-    trustExitCode = true
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/richard/.stCommitMsg
