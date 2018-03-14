@@ -3,6 +3,8 @@ export TERM="xterm-256color"
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
 
+export EDITOR='emacs'
+
 # Look in ~/.oh-my-zsh/themes/
 # test theme at http://zshthem.es/
 ZSH_THEME="pygmalion"  # "rkj-repos"
@@ -30,7 +32,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git sublime python nyan macports vagrant z)
+plugins=(git sublime python nyan macports vagrant z git-open)
 
 export HISTSIZE=32768;
 export HISTFILESIZE=$HISTSIZE;
@@ -39,17 +41,7 @@ export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help";
 
 
 # /opt/local/lib/postgresql90/bin
-export PATH=PATH:/Applications/Postgres.app/Contents/Versions/latest/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/sbin:/usr/local/git/bin
-
-
-# PYTHON
-# Pour resoudre les problèmes d'installation globale au système de paquets Python non OSX depuis El Capitan
-# on créé un venv Python 2.7 (ou 3.5) qui s'active avec la session
-# http://apple.stackexchange.com/questions/209572/how-to-use-pip-after-the-el-capitan-max-os-x-upgrade
-# Attention le PATH doit être défini avant
-source ~/.virtualenvs/richard27/bin/activate
-# Il faut aussi sourcer le script virtualenvwrapper.sh correspondant pour avoir les commandes helpers (mkvirtualenv...)
-source /opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh
+export PATH=PATH:/opt/local/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/usr/X11/bin:/opt/local/sbin:/usr/local/git/bin:/opt/local/bin/python
 
 
 source $ZSH/oh-my-zsh.sh
@@ -59,12 +51,10 @@ unsetopt share_history
 
 alias sub=st  # st alias is created by sublime ohmyzsh plugin (wherever is sublime)
 alias tailf=tail -f
-
-
-alias sub="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+alias gt=git
 
 # Recurvive, Ignore binaries, show line number
-export GREP_OPTIONS='-nRI --color=always --exclude-dir=__pycache__ --exclude-dir=.nodeproject --exclude-dir=CVS --exclude-dir=SVN --exclude-dir=.git --exclude-dir=.hg'
+export GREP_OPTIONS='-I --color=always --exclude-dir=__pycache__ --exclude-dir=.nodeproject --exclude-dir=CVS --exclude-dir=SVN --exclude-dir=.git --exclude-dir=.hg'
 
 function swap()
 {
@@ -90,3 +80,8 @@ man() {
 # https://github.com/pindexis/marker
 # this do not work with zsh yet
 #[[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker.sh"
+
+#https://news.ycombinator.com/item?id=14923362
+#https://the.exa.website
+#alias ls=/usr/local/bin/exa-macos-x86_64
+
