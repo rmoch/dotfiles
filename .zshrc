@@ -17,6 +17,10 @@ alias cat='bat'
 alias zshconfig="sub ~/.zshrc"
 alias ohmyzsh="sub ~/.oh-my-zsh"
 
+# required by pipenv
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
