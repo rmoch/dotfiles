@@ -3,7 +3,12 @@ export TERM="xterm-256color"
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
 
-export EDITOR='emacs'
+export EDITOR='vi'
+
+# pipenv: https://github.com/pypa/pipenv/issues/187
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 
 # Look in ~/.oh-my-zsh/themes/
 # test theme at http://zshthem.es/
@@ -17,9 +22,6 @@ alias cat='bat'
 alias zshconfig="sub ~/.zshrc"
 alias ohmyzsh="sub ~/.oh-my-zsh"
 
-# required by pipenv
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -49,6 +51,8 @@ export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help";
 
 # /opt/local/lib/postgresql90/bin
 export PATH=PATH:/opt/local/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/usr/X11/bin:/opt/local/sbin:/usr/local/git/bin:/opt/local/bin/python
+# minishift path
+#/Users/richard/dev/minishift-1.21.0-darwin-amd64
 
 
 source $ZSH/oh-my-zsh.sh
@@ -90,3 +94,5 @@ man() {
 #https://the.exa.website
 #alias ls=/usr/local/bin/exa-macos-x86_64
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
