@@ -2,7 +2,7 @@
 	name = Richard Moch
 	email = richard.moch@gmail.com
 [core]
-    editor = emacs
+    editor = vi
 	excludesfile = /Users/richard/.gitignore_global
 [color]
     ui = auto

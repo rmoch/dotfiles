@@ -11,8 +11,15 @@ ZSH_THEME="pygmalion"  # "rkj-repos"
 
 #source ~/dotfiles/passwords.txt
 
+# https://github.com/sharkdp/bat
+alias cat='bat'
+
 alias zshconfig="sub ~/.zshrc"
 alias ohmyzsh="sub ~/.oh-my-zsh"
+
+# required by pipenv
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -48,8 +55,6 @@ source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
 unsetopt share_history
 
-
-alias sub=st  # st alias is created by sublime ohmyzsh plugin (wherever is sublime)
 alias tailf=tail -f
 alias gt=git
 
